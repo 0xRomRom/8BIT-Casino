@@ -2,6 +2,8 @@
 
 const playerFunds = document.querySelector(".player-funds");
 const gameBalance = document.querySelector(".game-balance");
+const highscoreBalance = document.querySelector(".highscore-balance");
+const newHighscore = document.querySelector(".new-highscore");
 const slotsTitle = document.querySelector(".slots-title");
 const winText = document.querySelector(".win");
 const winAmount = document.querySelector(".win-amount");
@@ -18,24 +20,27 @@ const slot3 = document.querySelector(".slot-3");
 let funds = 100;
 let inGameBalance = 0;
 let winBalance = 0;
+let highScore = 100;
 //
+highscoreBalance.textContent = funds;
 playerFunds.textContent = funds;
+gameBalance.textContent = inGameBalance;
+//
+
 insertButton.addEventListener("click", () => {
   insertFunds();
   creditsAdded();
 });
 
-//
-gameBalance.textContent = inGameBalance;
 collectButton.addEventListener("click", () => {
   collectFunds();
   zeroFunds();
+  updateHighscore();
 });
 
 playButton.addEventListener("click", () => {
   playGame();
   zeroFunds();
-  winLine();
 });
 
 const insertFunds = () => {
@@ -111,6 +116,16 @@ const priceWin = () => {
   }, 2000);
 };
 
+const updateHighscore = () => {
+  if (funds > highScore) {
+    highscoreBalance.textContent = funds;
+    newHighscore.classList.remove("hidden");
+    setTimeout(() => {
+      newHighscore.classList.add("hidden");
+    }, 1300);
+  }
+};
+
 const randomSpins = () => {
   const int1 = Math.trunc(Math.random() * 16 + 1);
   const int2 = Math.trunc(Math.random() * 16 + 1);
@@ -156,7 +171,7 @@ const randomSpins = () => {
       //Win Combination 3
       if (int1 === 3 && int2 === 3) {
         playButton.disabled = true;
-        winBalance += 8;
+        winBalance += 10;
         priceWin();
         winLine1();
         winLine2();

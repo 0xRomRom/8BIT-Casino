@@ -35,6 +35,48 @@
   top: 30vh;
 }
 
+.highscore {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.1vw;
+  color: white;
+  left: 89vw;
+  top: 45vh;
+}
+.new-highscore {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.1vw;
+  color: rgb(255, 0, 0);
+  left: 89vw;
+  top: 55vh;
+  animation: highscoreAnimation 1.5s ease-in-out;
+}
+
+@keyframes highscoreAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(0rem);
+  }
+  50% {
+    transform: translateY(1rem);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(1rem);
+    opacity: 0;
+  }
+}
+
+.highscore-balance {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.3vw;
+  color: white;
+  left: 91vw;
+  top: 50vh;
+}
+
 .spins {
   position: absolute;
   font-family: "Press Start 2P", sans-serif;
@@ -122,29 +164,6 @@
     color: red;
   }
 }
-/* 
-0% {
-  display: initial;
-}
-15% {
-  display: none;
-}
-33% {
-  color: red;
-  display: initial;
-}
-51% {
-  display: none;
-}
-66% {
-  display: initial;
-}
-81% {
-  display: none;
-}
-100% {
-  display: initial;
-} */
 
 .add-credit {
   position: absolute;
@@ -182,7 +201,7 @@
   position: absolute;
   top: 78vh;
   left: 18vw;
-  padding: 1rem 1.25rem;
+  padding: 0.7rem 1rem;
   font-size: 2.2vw;
   font-family: "Press Start 2P", sans-serif;
   font-weight: 600;

@@ -138,27 +138,34 @@
   top: 49vh;
   left: 25vw;
 }
+.slots-outcome {
+  position: absolute;
+  /* border: 2px solid white; */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  height: 40vh;
+  width: 61vw;
+  z-index: 1;
+  top: 33vh;
+  left: 21vw;
+}
 
 .slot-1 {
   width: 8rem;
-  position: absolute;
-  top: 50vh;
-  left: 40vw;
   z-index: 2;
+  border-radius: 1rem;
 }
 
 .slot-2 {
   width: 8rem;
-  position: absolute;
-  top: 50vh;
-  left: 50vw;
   z-index: 2;
+  border-radius: 1rem;
 }
 
 .slot-3 {
   width: 8rem;
-  position: absolute;
-  top: 50vh;
-  left: 60vw;
   z-index: 2;
+  border-radius: 1rem;
 }

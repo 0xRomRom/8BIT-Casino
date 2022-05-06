@@ -43,6 +43,23 @@
   left: 70vw;
   top: 30vh;
 }
+.win {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.3vw;
+  color: white;
+  left: 22vw;
+  top: 70vh;
+}
+
+.win-amount {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.3vw;
+  color: white;
+  left: 28vw;
+  top: 70vh;
+}
 
 .add-credit {
   position: absolute;

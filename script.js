@@ -1,8 +1,10 @@
 "use strict";
 
-const playerBalance = document.querySelector(".player-funds");
+const playerFunds = document.querySelector(".player-funds");
 const gameBalance = document.querySelector(".game-balance");
 const slotsTitle = document.querySelector(".slots-title");
+const winText = document.querySelector(".win");
+const winAmount = document.querySelector(".win-amount");
 const addCredit = document.querySelector(".add-credit");
 const insertCredits = document.querySelector(".start-title");
 const playButton = document.querySelector(".play-button");
@@ -15,9 +17,9 @@ const slot3 = document.querySelector(".slot-3");
 //Logic
 let funds = 100;
 let inGameBalance = 0;
-
+let winBalance = 0;
 //
-playerBalance.textContent = funds;
+playerFunds.textContent = funds;
 insertButton.addEventListener("click", () => {
   insertFunds();
   creditsAdded();
@@ -33,6 +35,7 @@ collectButton.addEventListener("click", () => {
 playButton.addEventListener("click", () => {
   playGame();
   zeroFunds();
+  winLine();
 });
 
 const insertFunds = () => {
@@ -44,9 +47,9 @@ const insertFunds = () => {
     inGameBalance += funds;
     funds = 0;
     gameBalance.textContent = inGameBalance;
-    playerBalance.textContent = funds;
+    playerFunds.textContent = funds;
   }
-  playerBalance.textContent = funds;
+  playerFunds.textContent = funds;
   gameBalance.textContent = inGameBalance;
 };
 
@@ -54,7 +57,7 @@ const collectFunds = () => {
   funds += inGameBalance;
   inGameBalance = 0;
   gameBalance.textContent = inGameBalance;
-  playerBalance.textContent = funds;
+  playerFunds.textContent = funds;
 };
 
 const playGame = () => {
@@ -64,18 +67,6 @@ const playGame = () => {
     randomSpins();
   }
   gameBalance.textContent = inGameBalance;
-};
-
-const randomSpins = () => {
-  const randomInt1 = Math.trunc(Math.random() * 16 + 1);
-  const randomInt2 = Math.trunc(Math.random() * 16 + 1);
-  const randomInt3 = Math.trunc(Math.random() * 16 + 1);
-  console.log(randomInt1);
-  console.log(randomInt2);
-  console.log(randomInt3);
-  slot1.src = `icons/${randomInt1}.png`;
-  slot2.src = `icons/${randomInt2}.png`;
-  slot3.src = `icons/${randomInt3}.png`;
 };
 
 const zeroFunds = () => {
@@ -91,3 +82,48 @@ const creditsAdded = () => {
     addCredit.classList.add("hidden");
   }
 };
+
+const randomSpins = () => {
+  const int1 = Math.trunc(Math.random() * 16 + 1);
+  const int2 = Math.trunc(Math.random() * 16 + 1);
+  const int3 = Math.trunc(Math.random() * 16 + 1);
+  slot1.src = `icons/${int1}.png`;
+  slot2.src = `icons/${int2}.png`;
+  slot3.src = `icons/${int3}.png`;
+
+  const winLine = () => {
+    if (inGameBalance >= 0) {
+      if (int1 === 1 && int2 === 1) {
+        winBalance += 555;
+        inGameBalance += winBalance;
+        winAmount.textContent = winBalance;
+        winText.classList.remove("hidden");
+        winAmount.classList.remove("hidden");
+        // playButton.disabled = true;
+      }
+    }
+  };
+  winLine();
+};
+
+// const winLine = () => {
+//   if (inGameBalance >= 0) {
+//     const randomSpins = () => {
+//       const int1 = Math.trunc(Math.random() * 16 + 1);
+//       const int2 = Math.trunc(Math.random() * 16 + 1);
+//       const int3 = Math.trunc(Math.random() * 16 + 1);
+//       slot1.src = `icons/${int1}.png`;
+//       slot2.src = `icons/${int2}.png`;
+//       slot3.src = `icons/${int3}.png`;
+//       if (int1 === 1 && int2 === 1) {
+//         winBalance += 555;
+//         inGameBalance += winBalance;
+//         winAmount.textContent = winBalance;
+//         winText.classList.remove("hidden");
+//         winAmount.classList.remove("hidden");
+//         // playButton.disabled = true;
+//       }
+//     };
+//     randomSpins();
+//   }
+// };

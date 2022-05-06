@@ -64,6 +64,7 @@
 .slotmachine-bg {
   width: 100vw;
   height: 100vh;
+  z-index: -1;
 }
 
 .play-button {
@@ -136,4 +137,28 @@
   position: absolute;
   top: 49vh;
   left: 25vw;
+}
+
+.slot-1 {
+  width: 8rem;
+  position: absolute;
+  top: 50vh;
+  left: 40vw;
+  z-index: 2;
+}
+
+.slot-2 {
+  width: 8rem;
+  position: absolute;
+  top: 50vh;
+  left: 50vw;
+  z-index: 2;
+}
+
+.slot-3 {
+  width: 8rem;
+  position: absolute;
+  top: 50vh;
+  left: 60vw;
+  z-index: 2;
 }

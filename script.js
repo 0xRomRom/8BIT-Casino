@@ -3,7 +3,8 @@
 const playerBalance = document.querySelector(".player-funds");
 const gameBalance = document.querySelector(".game-balance");
 const slotsTitle = document.querySelector(".slots-title");
-const insertCredits = document.querySelector(".insert-credits");
+const addCredit = document.querySelector(".add-credit");
+const insertCredits = document.querySelector(".start-title");
 const playButton = document.querySelector(".play-button");
 const insertButton = document.querySelector(".insert-button");
 const collectButton = document.querySelector(".collect-button");
@@ -19,16 +20,19 @@ let inGameBalance = 0;
 playerBalance.textContent = funds;
 insertButton.addEventListener("click", () => {
   insertFunds();
+  creditsAdded();
 });
 
 //
 gameBalance.textContent = inGameBalance;
 collectButton.addEventListener("click", () => {
   collectFunds();
+  zeroFunds();
 });
 
 playButton.addEventListener("click", () => {
   playGame();
+  zeroFunds();
 });
 
 const insertFunds = () => {
@@ -72,4 +76,18 @@ const randomSpins = () => {
   slot1.src = `icons/${randomInt1}.png`;
   slot2.src = `icons/${randomInt2}.png`;
   slot3.src = `icons/${randomInt3}.png`;
+};
+
+const zeroFunds = () => {
+  if (inGameBalance === 0) {
+    if (insertCredits.classList.contains("hidden")) {
+      addCredit.classList.remove("hidden");
+    }
+  }
+};
+
+const creditsAdded = () => {
+  if (inGameBalance > 0) {
+    addCredit.classList.add("hidden");
+  }
 };

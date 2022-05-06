@@ -17,6 +17,18 @@
   width: 100vw;
   background: black;
 }
+
+.blank-div {
+  position: absolute;
+  top: 29vh;
+  left: 20.5vw;
+  width: 62vw;
+  height: 46vh;
+  /* border: 2px solid white; */
+
+  z-index: 3;
+}
+
 .slots-title {
   font-family: "Press Start 2P", sans-serif;
   color: white;

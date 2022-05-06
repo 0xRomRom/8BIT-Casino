@@ -19,6 +19,12 @@ insertButton.addEventListener("click", () => {
     funds -= 10;
     inGameBalance += 10;
   }
+  if (funds < 10 && funds > 0) {
+    inGameBalance += funds;
+    funds = 0;
+    gameBalance.textContent = inGameBalance;
+    playerBalance.textContent = funds;
+  }
   playerBalance.textContent = funds;
   gameBalance.textContent = inGameBalance;
 });

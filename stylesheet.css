@@ -1,0 +1,139 @@
+@import url("https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.hidden {
+  display: none;
+}
+
+.content {
+  overflow: hidden;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  background: black;
+}
+.slots-title {
+  font-family: "Press Start 2P", sans-serif;
+  color: white;
+  position: absolute;
+  top: 7vh;
+  left: 29vw;
+  font-size: 4vw;
+}
+
+.credits {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.3vw;
+  color: white;
+  left: 89vw;
+  top: 30vh;
+}
+
+.spins {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.3vw;
+  color: white;
+  left: 70vw;
+  top: 30vh;
+}
+
+.player-funds {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.3vw;
+  color: white;
+  left: 91vw;
+  top: 35vh;
+}
+.game-balance {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.3vw;
+  color: white;
+  left: 78vw;
+  top: 30vh;
+}
+
+.slotmachine-bg {
+  width: 100vw;
+  height: 100vh;
+}
+
+.play-button {
+  position: absolute;
+  top: 78vh;
+  left: 18vw;
+  padding: 1rem 1.25rem;
+  font-size: 2.2vw;
+  font-family: "Press Start 2P", sans-serif;
+  font-weight: 600;
+  border: 7px solid black;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skewX(-40deg);
+  color: rgba(0, 0, 0, 0.8);
+  background: #059405;
+}
+
+.play-button:hover {
+  background: rgba(8, 248, 8, 1);
+  color: rgba(0, 0, 0, 1);
+}
+
+.insert-button {
+  position: absolute;
+  top: 19vh;
+  left: 75vw;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2vw;
+  font-family: "Press Start 2P", sans-serif;
+  font-weight: 600;
+  border: 7px solid black;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skewX(-30deg);
+  color: rgba(0, 0, 0, 0.8);
+  background: #4416dd;
+}
+
+.insert-button:hover {
+  background: #542cd9;
+  color: rgba(0, 0, 0, 1);
+}
+
+.collect-button {
+  position: absolute;
+  top: 79vh;
+  left: 71vw;
+  padding: 0.5rem 0.75rem;
+  font-size: 1.2vw;
+  font-family: "Press Start 2P", sans-serif;
+  font-weight: 600;
+  border: 7px solid black;
+  text-transform: uppercase;
+  cursor: pointer;
+  transform: skewX(-30deg);
+  color: rgba(0, 0, 0, 0.8);
+  background: #fa1f10;
+}
+
+.collect-button:hover {
+  background: #f91808;
+  color: rgba(0, 0, 0, 1);
+}
+
+.insert-credits {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 2vw;
+  color: white;
+  position: absolute;
+  top: 49vh;
+  left: 25vw;
+}

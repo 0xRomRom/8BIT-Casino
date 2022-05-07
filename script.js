@@ -21,8 +21,11 @@ let funds = 100;
 let inGameBalance = 0;
 let winBalance = 0;
 let highScore = 100;
+let tempHighscore = 100;
+
 //
 highscoreBalance.textContent = funds;
+
 playerFunds.textContent = funds;
 gameBalance.textContent = inGameBalance;
 //
@@ -66,6 +69,7 @@ const collectFunds = () => {
 };
 
 const playGame = () => {
+  collectButton.disabled = false;
   if (inGameBalance >= 1) {
     inGameBalance -= 1;
     insertCredits.classList.add("hidden");
@@ -83,6 +87,7 @@ const zeroFunds = () => {
 };
 
 const creditsAdded = () => {
+  collectButton.disabled = false;
   if (inGameBalance > 0) {
     addCredit.classList.add("hidden");
   }
@@ -117,12 +122,16 @@ const priceWin = () => {
 };
 
 const updateHighscore = () => {
+  collectButton.disabled = true;
   if (funds > highScore) {
-    highscoreBalance.textContent = funds;
-    newHighscore.classList.remove("hidden");
-    setTimeout(() => {
-      newHighscore.classList.add("hidden");
-    }, 1300);
+    if (funds > tempHighscore) {
+      tempHighscore = funds;
+      highscoreBalance.textContent = funds;
+      newHighscore.classList.remove("hidden");
+      setTimeout(() => {
+        newHighscore.classList.add("hidden");
+      }, 1500);
+    }
   }
 };
 

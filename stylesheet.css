@@ -20,12 +20,9 @@
 
 .blank-div {
   position: absolute;
-  top: 29vh;
-  left: 20.5vw;
-  width: 62vw;
-  height: 46vh;
+  width: 100vw;
+  height: 100vh;
   /* border: 2px solid white; */
-
   z-index: 3;
 }
 
@@ -62,7 +59,7 @@
   color: rgb(255, 0, 0);
   left: 89vw;
   top: 55vh;
-  animation: highscoreAnimation 1.5s ease-in-out;
+  animation: highscoreAnimation 1.6s ease-in-out;
 }
 
 @keyframes highscoreAnimation {
@@ -223,6 +220,8 @@
   transform: skewX(-40deg);
   color: rgba(0, 0, 0, 0.8);
   background: #059405;
+  outline: none;
+  z-index: 4;
 }
 
 .play-button:hover {
@@ -244,6 +243,8 @@
   transform: skewX(-30deg);
   color: rgba(0, 0, 0, 0.8);
   background: #4416dd;
+  outline: none;
+  z-index: 4;
 }
 
 .insert-button:hover {
@@ -265,6 +266,8 @@
   transform: skewX(-30deg);
   color: rgba(0, 0, 0, 0.8);
   background: #fa1f10;
+  outline: none;
+  z-index: 4;
 }
 
 .collect-button:hover {

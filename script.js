@@ -21,7 +21,7 @@ let funds = 100;
 let inGameBalance = 0;
 let winBalance = 0;
 let highScore = 100;
-let tempHighscore = 100;
+let tempHighscore = highScore;
 
 const saveToLocalStorage = () => {
   localStorage.setItem("highscore", tempHighscore);
@@ -30,7 +30,6 @@ let storedInput = localStorage.getItem("highscore");
 
 //
 highscoreBalance.textContent = storedInput;
-
 playerFunds.textContent = funds;
 gameBalance.textContent = inGameBalance;
 //

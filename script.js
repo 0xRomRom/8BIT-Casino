@@ -23,8 +23,13 @@ let winBalance = 0;
 let highScore = 100;
 let tempHighscore = 100;
 
+const saveToLocalStorage = () => {
+  localStorage.setItem("highscore", tempHighscore);
+};
+let storedInput = localStorage.getItem("highscore");
+
 //
-highscoreBalance.textContent = funds;
+highscoreBalance.textContent = storedInput;
 
 playerFunds.textContent = funds;
 gameBalance.textContent = inGameBalance;
@@ -39,6 +44,7 @@ collectButton.addEventListener("click", () => {
   collectFunds();
   zeroFunds();
   updateHighscore();
+  saveToLocalStorage();
 });
 
 playButton.addEventListener("click", () => {

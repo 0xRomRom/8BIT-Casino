@@ -223,10 +223,10 @@
   background: #000000;
   outline: none;
   z-index: 4;
-  animation: flashing 0.3s ease-in-out infinite;
+  animation: flashing100 0.3s ease-in-out infinite;
 }
 
-@keyframes flashing {
+@keyframes flashing100 {
   0% {
     color: rgb(255, 255, 255);
     background: rgb(0, 0, 0);

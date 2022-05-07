@@ -27,6 +27,7 @@ const saveToLocalStorage = () => {
   localStorage.setItem("highscore", tempHighscore);
 };
 let storedInput = localStorage.getItem("highscore");
+console.log(storedInput);
 
 //
 highscoreBalance.textContent = storedInput;
@@ -43,7 +44,9 @@ collectButton.addEventListener("click", () => {
   collectFunds();
   zeroFunds();
   updateHighscore();
-  saveToLocalStorage();
+  if (highScore > tempHighscore) {
+    saveToLocalStorage();
+  }
 });
 
 playButton.addEventListener("click", () => {
@@ -128,8 +131,8 @@ const priceWin = () => {
 
 const updateHighscore = () => {
   collectButton.disabled = true;
-  if (funds > highScore) {
-    if (funds > tempHighscore) {
+  if (funds > tempHighscore) {
+    if (tempHighscore > +storedInput) {
       tempHighscore = funds;
       highscoreBalance.textContent = funds;
       newHighscore.classList.remove("hidden");

@@ -29,6 +29,10 @@ const saveToLocalStorage = () => {
 let storedInput = localStorage.getItem("highscore");
 console.log(storedInput);
 
+window.addEventListener("load", (event) => {
+  highscoreBalance.textContent = storedInput;
+});
+
 //
 highscoreBalance.textContent = +storedInput;
 playerFunds.textContent = funds;
@@ -44,7 +48,7 @@ collectButton.addEventListener("click", () => {
   collectFunds();
   zeroFunds();
   updateHighscore();
-  if (highScore > +storedInput) {
+  if (tempHighscore > +storedInput) {
     saveToLocalStorage();
   }
 });

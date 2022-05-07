@@ -5,6 +5,7 @@ const gameBalance = document.querySelector(".game-balance");
 const highscoreBalance = document.querySelector(".highscore-balance");
 const newHighscore = document.querySelector(".new-highscore");
 const slotsTitle = document.querySelector(".slots-title");
+const tokenTopUp = document.querySelector(".token-topup");
 const winText = document.querySelector(".win");
 const winAmount = document.querySelector(".win-amount");
 const addCredit = document.querySelector(".add-credit");
@@ -23,6 +24,7 @@ let winBalance = 0;
 let highScore = 100;
 let tempHighscore = highScore;
 
+//Save Highscores
 const saveToLocalStorage = () => {
   localStorage.setItem("highscore", tempHighscore);
 };
@@ -31,14 +33,18 @@ console.log(storedInput);
 
 window.addEventListener("load", (event) => {
   highscoreBalance.textContent = storedInput;
+  tempHighscore = storedInput;
 });
 
-//
-highscoreBalance.textContent = +storedInput;
+// Render Inputs
+highscoreBalance.textContent = storedInput;
 playerFunds.textContent = funds;
 gameBalance.textContent = inGameBalance;
+tokenTopUp.disabled = true;
+
 //
 
+// Action buttons
 insertButton.addEventListener("click", () => {
   insertFunds();
   creditsAdded();
@@ -56,7 +62,24 @@ collectButton.addEventListener("click", () => {
 playButton.addEventListener("click", () => {
   playGame();
   zeroFunds();
+  newFunds();
 });
+
+tokenTopUp.addEventListener("click", () => {
+  tokenTopUp.classList.add("hidden");
+  tokenTopUp.disabled = true;
+  funds += 100;
+  playerFunds.textContent = funds;
+});
+
+// Functions
+
+const newFunds = () => {
+  if (inGameBalance === 0 && funds === 0) {
+    tokenTopUp.disabled = false;
+    tokenTopUp.classList.remove("hidden");
+  }
+};
 
 const insertFunds = () => {
   if (funds >= 10) {
@@ -105,6 +128,8 @@ const creditsAdded = () => {
   }
 };
 
+// Slot win decoration
+
 const winLine1 = () => {
   slot1.classList.add("box-flashing");
 };
@@ -133,6 +158,8 @@ const priceWin = () => {
   }, 2000);
 };
 
+//Hi-score
+
 const updateHighscore = () => {
   collectButton.disabled = true;
   if (funds > highScore) {
@@ -146,6 +173,8 @@ const updateHighscore = () => {
     }
   }
 };
+
+// Win Logic
 
 const randomSpins = () => {
   const int1 = Math.trunc(Math.random() * 16 + 1);

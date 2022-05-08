@@ -36,10 +36,7 @@ const saveToLocalStorage = () => {
 let storedInput = localStorage.getItem("highscore");
 
 window.addEventListener("load", () => {
-  if (+storedInput > 0) {
-    highscoreBalance.textContent = storedInput;
-  }
-  highscoreBalance.textContent = "0";
+  highscoreBalance.textContent = storedInput;
   tempHighscore = storedInput;
 });
 

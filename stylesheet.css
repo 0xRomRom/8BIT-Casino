@@ -170,26 +170,34 @@
   top: 45vh;
 }
 .new-highscore {
+  display: flex;
   position: absolute;
   font-family: "Press Start 2P", sans-serif;
   font-size: 1.1vw;
   color: rgb(255, 0, 0);
   left: 89vw;
   top: 55vh;
-  animation: highscoreAnimation 1.6s ease-in-out;
+}
+
+.highscore-animation {
+  animation: 1.5s linear normal highscoreAnimation;
+  animation-iteration-count: 1;
 }
 
 @keyframes highscoreAnimation {
   0% {
-    opacity: 0;
+    opacity: 0.2;
     transform: translateY(0rem);
   }
   50% {
-    transform: translateY(1rem);
+    transform: translateY(1.3rem);
     opacity: 1;
   }
+  80% {
+    opacity: 0.7;
+  }
   100% {
-    transform: translateY(1rem);
+    transform: translateY(2rem);
     opacity: 0;
   }
 }
@@ -201,7 +209,7 @@
   color: white;
   left: 91vw;
   top: 50vh;
-  z-index: 5;
+  z-index: 15;
 }
 
 .spins {
@@ -231,11 +239,11 @@
 }
 
 .flashing {
-  animation: flashing 1s ease-in-out;
+  animation: flashing 1s ease-in-out infinite;
 }
 
 .box-flashing {
-  animation: boxFlashing 1s ease-in-out;
+  animation: boxFlashing 1s ease-in-out infinite;
 }
 
 @keyframes boxFlashing {

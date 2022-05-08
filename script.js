@@ -94,7 +94,7 @@ cancelButton.addEventListener("click", () => {
 
 confirmButton.addEventListener("click", () => {
   tempHighscore = 0;
-  highscoreBalance.textContent = tempHighscore;
+  highscoreBalance.textContent = "";
   hiScoreResetModal.style.display = "none";
   settingsModal.classList.add("hidden");
   window.localStorage.removeItem("highscore");
@@ -172,9 +172,10 @@ const priceWin = () => {
   inGameBalance += winBalance;
   winAmount.textContent = winBalance;
   winText.classList.remove("hidden");
-  winText.classList.add("flashing");
   winAmount.classList.remove("hidden");
   winAmount.classList.add("flashing");
+  winText.classList.add("flashing");
+
   winBalance = 0;
   setTimeout(() => {
     winText.classList.add("hidden");
@@ -183,7 +184,7 @@ const priceWin = () => {
     slot1.classList.remove("box-flashing");
     slot2.classList.remove("box-flashing");
     slot3.classList.remove("box-flashing");
-  }, 2000);
+  }, 1500);
 };
 
 //Hi-score
@@ -195,8 +196,10 @@ const updateHighscore = () => {
       tempHighscore = funds;
       highscoreBalance.textContent = funds;
       newHighscore.classList.remove("hidden");
+      newHighscore.classList.add("highscore-animation");
       setTimeout(() => {
         newHighscore.classList.add("hidden");
+        newHighscore.classList.remove("highscore-animation");
       }, 1500);
     }
   }

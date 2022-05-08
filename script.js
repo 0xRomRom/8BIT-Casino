@@ -11,12 +11,17 @@ const winAmount = document.querySelector(".win-amount");
 const addCredit = document.querySelector(".add-credit");
 const insertCredits = document.querySelector(".start-title");
 const playButton = document.querySelector(".play-button");
+const resetHiscore = document.querySelector(".reset-hiscore");
+const settingsButton = document.querySelector(".fa-gear");
+const settingsModal = document.querySelector(".settings-modal");
 const insertButton = document.querySelector(".insert-button");
 const collectButton = document.querySelector(".collect-button");
 const slot1 = document.querySelector(".slot-1");
 const slot2 = document.querySelector(".slot-2");
 const slot3 = document.querySelector(".slot-3");
-
+const confirmButton = document.querySelector(".confirm-button");
+const cancelButton = document.querySelector(".cancel-button");
+const hiScoreResetModal = document.querySelector(".confirm-reset-hiscore");
 //Logic
 let funds = 100;
 let inGameBalance = 0;
@@ -29,9 +34,8 @@ const saveToLocalStorage = () => {
   localStorage.setItem("highscore", tempHighscore);
 };
 let storedInput = localStorage.getItem("highscore");
-console.log(storedInput);
 
-window.addEventListener("load", (event) => {
+window.addEventListener("load", () => {
   highscoreBalance.textContent = storedInput;
   tempHighscore = storedInput;
 });
@@ -70,6 +74,30 @@ tokenTopUp.addEventListener("click", () => {
   tokenTopUp.disabled = true;
   funds += 100;
   playerFunds.textContent = funds;
+});
+
+settingsButton.addEventListener("click", () => {
+  settingsModal.classList.toggle("hidden");
+  console.log("hello");
+  if ((hiScoreResetModal.style.display = "initial")) {
+    hiScoreResetModal.style.display = "none";
+  }
+});
+
+resetHiscore.addEventListener("click", () => {
+  hiScoreResetModal.style.display = "initial";
+});
+
+cancelButton.addEventListener("click", () => {
+  hiScoreResetModal.style.display = "none";
+});
+
+confirmButton.addEventListener("click", () => {
+  tempHighscore = 0;
+  highscoreBalance.textContent = tempHighscore;
+  hiScoreResetModal.style.display = "none";
+  settingsModal.classList.add("hidden");
+  window.localStorage.removeItem("highscore");
 });
 
 // Functions
@@ -180,6 +208,9 @@ const randomSpins = () => {
   const int1 = Math.trunc(Math.random() * 16 + 1);
   const int2 = Math.trunc(Math.random() * 16 + 1);
   const int3 = Math.trunc(Math.random() * 16 + 1);
+  console.log(int1);
+  console.log(int2);
+  console.log(int3);
   slot1.src = `icons/${int1}.png`;
   slot2.src = `icons/${int2}.png`;
   slot3.src = `icons/${int3}.png`;

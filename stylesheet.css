@@ -7,7 +7,7 @@
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
 }
 
 .content {
@@ -24,6 +24,123 @@
   height: 100vh;
   /* border: 2px solid white; */
   z-index: 3;
+}
+
+.fa-gear {
+  position: absolute;
+  left: 6.5vw;
+  top: 32vh;
+  color: white;
+  font-size: 3vw;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.fa-gear:hover {
+  cursor: pointer;
+  transform: rotate(90deg);
+  animation: rotatingGear 2s linear infinite;
+}
+
+@keyframes rotatingGear {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.settings-modal {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  border-radius: 1rem;
+  width: 14vw;
+  height: 35vh;
+  left: 0.7vw;
+  top: 40vh;
+  background: rgb(0, 0, 0);
+  border: 3px solid white;
+  z-index: 10;
+}
+
+.global-hiscore {
+  position: relative;
+  width: 90%;
+  background: white;
+  border: 3px solid red;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+.reset-hiscore {
+  position: relative;
+  width: 90%;
+  background: white;
+  border: 3px solid red;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+}
+
+.confirm-reset-hiscore {
+  position: absolute;
+  top: 29vh;
+  left: 21vw;
+  width: 61vw;
+  height: 46vh;
+  background: rgb(0, 0, 0);
+  display: none;
+  z-index: 10;
+}
+.confirm {
+  position: relative;
+  top: 10vh;
+  left: 20vw;
+  color: white;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.confirm-button {
+  position: relative;
+  width: 20%;
+  background: rgba(255, 255, 255, 0.6);
+  border: 3px solid red;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  top: 20vh;
+  left: 20vw;
+  z-index: 10;
+}
+
+.cancel-button {
+  position: relative;
+  width: 20%;
+  background: rgba(255, 255, 255, 0.6);
+  border: 3px solid red;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 0.5rem 0.8rem;
+  cursor: pointer;
+  top: 20vh;
+  left: 15vw;
+  z-index: 10;
+}
+
+.option-hover:hover {
+  background: rgba(255, 255, 255, 1);
 }
 
 .slots-title {

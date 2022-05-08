@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Slot Machine</title>
     <link href="stylesheet.css" rel="stylesheet" />
+    <script
+      async
+      src="https://kit.fontawesome.com/5f3c108898.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <div class="content">
@@ -17,6 +22,7 @@
       <input type="button" value="Insert" class="insert-button" />
       <input type="button" value="Collect" class="collect-button" />
       <input type="button" value="+100" class="token-topup hidden" />
+      <i class="fa-solid fa-gear"></i>
       <h1 class="start-title">Insert Credits & Press Play</h1>
       <h1 class="credits">Credits:</h1>
       <h1 class="player-funds"></h1>
@@ -32,6 +38,23 @@
         <img src="" class="slot-1" />
         <img src="" class="slot-2" />
         <img src="" class="slot-3" />
+      </div>
+      <div class="settings-modal hidden">
+        <input type="button" value="Global Hi-score" class="global-hiscore" />
+        <input type="button" value="Reset Hi-score" class="reset-hiscore" />
+      </div>
+      <div class="confirm-reset-hiscore">
+        <h1 class="confirm">Reset Hi-Score<br />Are you sure?</h1>
+        <input
+          type="button"
+          value="Cancel"
+          class="cancel-button option-hover"
+        />
+        <input
+          type="button"
+          value="Confirm"
+          class="confirm-button option-hover"
+        />
       </div>
     </div>
   </body>

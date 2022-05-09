@@ -101,6 +101,7 @@
   display: none;
   z-index: 10;
 }
+
 .confirm {
   position: relative;
   top: 10vh;

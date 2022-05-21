@@ -67,18 +67,6 @@
   z-index: 10;
 }
 
-.global-hiscore {
-  position: relative;
-  width: 90%;
-  background: white;
-  border: 3px solid red;
-  font-family: "Press Start 2P", sans-serif;
-  font-size: 0.85rem;
-  font-weight: 600;
-  padding: 0.5rem 0.8rem;
-  cursor: pointer;
-}
-
 .reset-hiscore {
   position: relative;
   width: 90%;
@@ -221,6 +209,7 @@
   left: 70vw;
   top: 30vh;
 }
+
 .win {
   position: absolute;
   font-family: "Press Start 2P", sans-serif;
@@ -228,6 +217,15 @@
   color: white;
   left: 22vw;
   top: 70vh;
+}
+
+.bonusgame {
+  position: absolute;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1.3vw;
+  color: white;
+  left: 44vw;
+  top: 38vh;
 }
 
 .win-amount {
@@ -245,6 +243,37 @@
 
 .box-flashing {
   animation: boxFlashing 1s ease-in-out infinite;
+}
+
+.bonus-flashing {
+  animation: bonusFlashing 1s ease-in-out infinite;
+}
+
+@keyframes bonusFlashing {
+  0% {
+    text-shadow: 0px 0px 0px red;
+  }
+  15% {
+    text-shadow: 0px 0px 30px red;
+  }
+  33% {
+    text-shadow: 0px 0px 0px red;
+  }
+  51% {
+    text-shadow: 0px 0px 30px red;
+  }
+  66% {
+    text-shadow: 0px 0px 0px red;
+  }
+  81% {
+    text-shadow: 0px 0px 30px red;
+  }
+  99% {
+    text-shadow: 0px 0px 0px red;
+  }
+  100% {
+    text-shadow: 0px 0px 30px red;
+  }
 }
 
 @keyframes boxFlashing {
@@ -479,4 +508,191 @@
   width: 8rem;
   z-index: 2;
   border-radius: 1rem;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
+}
+
+.bonus-window {
+  position: absolute;
+  top: 29vh;
+  left: 21vw;
+  width: 61vw;
+  height: 46vh;
+  background: rgb(0, 0, 0);
+  z-index: 10;
+  /* border: 2px solid white; */
+}
+
+.bonus-win-title {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 2vw;
+  color: white;
+  position: absolute;
+  top: 5vh;
+  left: 20.5vw;
+}
+
+.bonus-win-subtitle {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 2vw;
+  color: white;
+  position: absolute;
+  top: 15vh;
+  left: 2.5vw;
+}
+
+.check-prize {
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 2vw;
+  color: white;
+  position: absolute;
+  top: 31.5vh;
+  left: 2.5vw;
+}
+
+.question-mark {
+  display: inline;
+  position: absolute;
+  left: 38.5vw;
+  top: 28vh;
+  font-size: 3vw;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  background: black;
+}
+
+.rotate {
+  animation: rotate 1s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.bonus-prize {
+  display: inline-block;
+  position: relative;
+  left: 35vw;
+  top: 29vh;
+  font-size: 3vw;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  padding: 1rem;
+  color: green;
+}
+
+.question-mark:hover {
+  transition: none;
+  box-shadow: 0px 0px 10px white;
+}
+
+.bonus-window2 {
+  position: absolute;
+  top: 29vh;
+  left: 21vw;
+  width: 61vw;
+  height: 46vh;
+  background: rgb(0, 0, 0);
+  z-index: 10;
+  /* border: 2px solid white; */
+}
+
+.jackpot-win-value {
+  display: inline-block;
+  position: absolute;
+  left: 50vw;
+  top: 2vh;
+  font-size: 3vw;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  padding: 1rem;
+  color: green;
+}
+
+.round1 {
+  display: inline-block;
+  position: absolute;
+  left: 22vw;
+  top: 5vh;
+  font-size: 2rem;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  padding: 1rem;
+  color: rgb(255, 255, 255);
+}
+
+.take-winnings {
+  display: inline-block;
+  position: absolute;
+  left: 10vw;
+  top: 15vh;
+  font-size: 1.5rem;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  padding: 1rem;
+  color: rgb(255, 255, 255);
+}
+
+.or-gamble {
+  display: inline-block;
+  position: absolute;
+  left: 10vw;
+  top: 23vh;
+  font-size: 1.5rem;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  padding: 1rem;
+  color: rgb(255, 255, 255);
+}
+
+.take-win {
+  position: absolute;
+  padding: 0.75rem 1.5rem;
+  top: 40vh;
+  left: 15vw;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1rem;
+  color: white;
+  background: black;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.take-win:hover {
+  color: black;
+  background: white;
+}
+
+.lets-gamble {
+  position: absolute;
+  padding: 0.75rem 1.5rem;
+  top: 40vh;
+  left: 30vw;
+  font-family: "Press Start 2P", sans-serif;
+  font-size: 1rem;
+  color: white;
+  background: black;
+  border: 2px solid white;
+  cursor: pointer;
+}
+
+.lets-gamble:hover {
+  color: black;
+  background: white;
 }

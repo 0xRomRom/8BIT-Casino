@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Slot Machine</title>
+    <title>8Bit Casino</title>
     <link href="stylesheet.css" rel="stylesheet" />
     <script
       async
@@ -32,6 +32,7 @@
       <h1 class="game-balance"></h1>
       <h1 class="spins">Spins:</h1>
       <h1 class="win hidden">Win:</h1>
+      <h1 class="bonusgame hidden">Bonus Game!</h1>
       <h1 class="win-amount hidden">0</h1>
       <h1 class="add-credit hidden">Add credits!</h1>
       <div class="slots-outcome">
@@ -40,7 +41,6 @@
         <img src="" class="slot-3" />
       </div>
       <div class="settings-modal hidden">
-        <input type="button" value="Global Hi-score" class="global-hiscore" />
         <input type="button" value="Reset Hi-score" class="reset-hiscore" />
       </div>
       <div class="confirm-reset-hiscore">
@@ -55,6 +55,25 @@
           value="Confirm"
           class="confirm-button option-hover"
         />
+      </div>
+      <div class="bonus-window hidden">
+        <h1 class="bonus-win-title hidden">Bonus Game</h1>
+        <h1 class="bonus-win-subtitle hidden">
+          Random Prize Between <span class="red">100</span>-<span class="green"
+            >350</span
+          >
+        </h1>
+        <h1 class="check-prize hidden">Check Prize! =></h1>
+        <input type="button" value="?"class="question-mark hidden"></input>
+        <h1 class="bonus-prize hidden">!</h1>
+      </div>
+      <div class="bonus-window2 hidden">
+        <h1 class="jackpot-win-value"></h1>
+        <h1 class="round1 hidden">Round 1</h1>
+        <h1 class="take-winnings hidden">Take Prize</h1>
+        <h1 class="or-gamble hidden">or<br><br><br> Gamble  to double or lose all!</h1>
+        <input type="button" value="" class="take-win hidden">
+        <input type="button" value="Gamble!" class="lets-gamble hidden">
       </div>
     </div>
   </body>

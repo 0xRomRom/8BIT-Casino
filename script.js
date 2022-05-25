@@ -28,16 +28,30 @@ const bonusWindow2 = document.querySelector(".bonus-window2");
 const bonusWinTitle = document.querySelector(".bonus-win-title");
 const bonusWinSubTitle = document.querySelector(".bonus-win-subtitle");
 const questionMark = document.querySelector(".question-mark");
+const questionMark2 = document.querySelector(".question-mark2");
+const questionMark3 = document.querySelector(".question-mark3");
+const questionMark4 = document.querySelector(".question-mark4");
 const checkPrize = document.querySelector(".check-prize");
 const bonusPrize = document.querySelector(".bonus-prize");
 const rotate = document.querySelector(".rotate");
 const opacityScaleDown = document.querySelector(".opacity-scale-down");
 const jackpotWinValue = document.querySelector(".jackpot-win-value");
+const jackpotWinValue2 = document.querySelector(".jackpot-win-value2");
 const takeWinnings = document.querySelector(".take-winnings");
 const orGamble = document.querySelector(".or-gamble");
 const round1 = document.querySelector(".round1");
 const takeWin = document.querySelector(".take-win");
 const letsGamble = document.querySelector(".lets-gamble");
+const blackOut = document.querySelector(".blackout");
+const loading = document.querySelector(".loading");
+const gameRound1 = document.querySelector(".game-round1");
+const chooseWisely = document.querySelector(".choose-wisely");
+const redX1 = document.querySelector(".redX1");
+const redX2 = document.querySelector(".redX2");
+const redX3 = document.querySelector(".redX3");
+const line1Win = document.querySelector(".line1Win");
+const line2Win = document.querySelector(".line2Win");
+const line3Win = document.querySelector(".line3Win");
 
 //Logic
 let jackpot = 0;
@@ -47,6 +61,7 @@ let inGameBalance = 0;
 let winBalance = 0;
 let highScore = 100;
 let tempHighscore = highScore;
+let bonusAmount = 0;
 
 //Save Highscores
 const saveToLocalStorage = () => {
@@ -188,10 +203,37 @@ const winLine3 = () => {
 
 (function () {
   setInterval(function () {
-    const randomNum1 = Math.trunc(Math.random() * 255 + 1);
-    const randomNum2 = Math.trunc(Math.random() * 255 + 1);
-    const randomNum3 = Math.trunc(Math.random() * 255 + 1);
-    questionMark.style.color = `rgb(${randomNum1}, ${randomNum2}, ${randomNum3})`;
+    const int1 = Math.trunc(Math.random() * 255 + 1);
+    const int2 = Math.trunc(Math.random() * 255 + 1);
+    const int3 = Math.trunc(Math.random() * 255 + 1);
+    questionMark.style.color = `rgb(${int1}, ${int2}, ${int3})`;
+  }, 1000);
+})();
+
+(function () {
+  setInterval(function () {
+    const int1 = Math.trunc(Math.random() * 255 + 1);
+    const int2 = Math.trunc(Math.random() * 255 + 1);
+    const int3 = Math.trunc(Math.random() * 255 + 1);
+    questionMark2.style.color = `rgb(${int1}, ${int2}, ${int3})`;
+  }, 1000);
+})();
+
+(function () {
+  setInterval(function () {
+    const int1 = Math.trunc(Math.random() * 255 + 1);
+    const int2 = Math.trunc(Math.random() * 255 + 1);
+    const int3 = Math.trunc(Math.random() * 255 + 1);
+    questionMark3.style.color = `rgb(${int1}, ${int2}, ${int3})`;
+  }, 1000);
+})();
+
+(function () {
+  setInterval(function () {
+    const int1 = Math.trunc(Math.random() * 255 + 1);
+    const int2 = Math.trunc(Math.random() * 255 + 1);
+    const int3 = Math.trunc(Math.random() * 255 + 1);
+    questionMark4.style.color = `rgb(${int1}, ${int2}, ${int3})`;
   }, 1000);
 })();
 
@@ -236,35 +278,18 @@ const bonusWin = () => {
   }, 12500);
 };
 
-function getRandomArbitrary(min, max) {
+function getBonusWin(min, max) {
   return Math.trunc(Math.random() * (max - min) + min);
 }
 
 questionMark.addEventListener("click", () => {
   questionMark.disabled = true;
-  let randomInt = 0;
-  const bonusOutcome = getRandomArbitrary(100, 350);
-  randomInt = bonusOutcome;
-  bonusPrize.insertAdjacentHTML("afterbegin", randomInt);
-  jackpot = randomInt;
-  jackpotWinValue.insertAdjacentHTML("afterbegin", jackpot);
+  const bonusOutcome = getBonusWin(100, 350);
+  bonusAmount = bonusOutcome;
+  bonusPrize.insertAdjacentHTML("afterbegin", bonusOutcome);
+  jackpotWinValue.insertAdjacentHTML("afterbegin", bonusOutcome);
   questionMark.classList.add("rotate");
-  takeWin.value = `Take ${jackpot}`;
-  setTimeout(() => {
-    questionMark.style.opacity = "0.8";
-  }, 300);
-  setTimeout(() => {
-    questionMark.style.opacity = "0.6";
-  }, 600);
-  setTimeout(() => {
-    questionMark.style.opacity = "0.4";
-  }, 900);
-  setTimeout(() => {
-    questionMark.style.opacity = "0.2";
-  }, 1200);
-  setTimeout(() => {
-    questionMark.style.opacity = "0.01";
-  }, 1500);
+  takeWin.value = `Take ${bonusOutcome}`;
   setTimeout(() => {
     questionMark.classList.add("hidden");
   }, 1600);
@@ -281,11 +306,262 @@ questionMark.addEventListener("click", () => {
   setTimeout(() => {
     takeWinnings.classList.remove("hidden");
     orGamble.classList.remove("hidden");
+    bonusPrize.textContent = "";
+    bonusPrize.classList.add("hidden");
+    questionMark.classList.remove("rotate");
   }, 12000);
   setTimeout(() => {
     takeWin.classList.remove("hidden");
     letsGamble.classList.remove("hidden");
   }, 15000);
+});
+
+takeWin.addEventListener("click", () => {
+  blackOut.classList.remove("hidden");
+  loading.classList.remove("hidden");
+  bonusGameText.classList.add("hidden");
+  bonusGameText.classList.remove("bonus-flashing");
+  bonusWinTitle.classList.add("hidden");
+  bonusWinSubTitle.classList.add("hidden");
+  questionMark.classList.add("hidden");
+  checkPrize.classList.add("hidden");
+  round1.classList.add("hidden");
+  takeWinnings.classList.add("hidden");
+  orGamble.classList.add("hidden");
+  takeWin.classList.add("hidden");
+  letsGamble.classList.add("hidden");
+  bonusPrize.classList.add("hidden");
+  playButton.disabled = false;
+  insertButton.disabled = false;
+  collectButton.disabled = false;
+  bonusWindow.classList.add("hidden");
+  bonusWindow2.classList.add("hidden");
+  inGameBalance += bonusAmount;
+  gameBalance.textContent = inGameBalance;
+  bonusAmount = 0;
+  slot1.classList.remove("box-flashing");
+  slot2.classList.remove("box-flashing");
+  slot3.classList.remove("box-flashing");
+  jackpotWinValue.textContent = "";
+  bonusPrize.textContent = "";
+  questionMark.classList.remove("rotate");
+  questionMark.disabled = false;
+  setTimeout(() => {
+    blackOut.classList.add("hidden");
+    loading.classList.add("hidden");
+  }, 1000);
+});
+
+letsGamble.addEventListener("click", () => {
+  takeWin.classList.add("hidden");
+  letsGamble.classList.add("hidden");
+  blackOut.classList.remove("hidden");
+  loading.classList.remove("hidden");
+  bonusWindow.classList.add("hidden");
+  bonusWindow2.classList.add("hidden");
+  setTimeout(() => {
+    blackOut.classList.add("hidden");
+    loading.classList.add("hidden");
+    gameRound1.classList.remove("hidden");
+    jackpotWinValue2.insertAdjacentHTML("afterbegin", bonusAmount);
+  }, 1000);
+  setTimeout(() => {
+    chooseWisely.classList.remove("hidden");
+  }, 2500);
+  setTimeout(() => {
+    questionMark2.classList.remove("hidden");
+    questionMark3.classList.remove("hidden");
+    questionMark4.classList.remove("hidden");
+  }, 4000);
+});
+
+questionMark2.addEventListener("click", () => {
+  questionMark2.disabled = true;
+  questionMark3.disabled = true;
+  questionMark4.disabled = true;
+  const bonusOutcome = getBonusWin(0, 100);
+  questionMark2.classList.add("rotate");
+  questionMark3.classList.add("rotate");
+  questionMark4.classList.add("rotate");
+  setTimeout(() => {
+    questionMark2.classList.add("hidden");
+    questionMark3.classList.add("hidden");
+    questionMark4.classList.add("hidden");
+  }, 1600);
+  setTimeout(() => {
+    if (bonusOutcome >= 34 && bonusOutcome <= 66) {
+      let prizeX2 = bonusAmount * 2;
+      inGameBalance += prizeX2;
+      gameBalance.textContent = inGameBalance;
+      bonusAmount = 0;
+      line2Win.insertAdjacentHTML("beforeend", prizeX2);
+      line2Win.classList.add("flashing");
+      line2Win.classList.remove("hidden");
+      redX1.classList.remove("hidden");
+      redX3.classList.remove("hidden");
+    } else {
+      redX2.classList.remove("hidden");
+    }
+  }, 3000);
+  setTimeout(() => {
+    jackpotWinValue.textContent = "";
+    jackpotWinValue2.textContent = "";
+    gameRound1.classList.add("hidden");
+    line2Win.classList.add("hidden");
+    redX1.classList.add("hidden");
+    redX3.classList.add("hidden");
+    redX2.classList.add("hidden");
+    bonusGameText.classList.add("hidden");
+    bonusGameText.classList.remove("bonus-flashing");
+    slot1.classList.remove("box-flashing");
+    slot2.classList.remove("box-flashing");
+    slot3.classList.remove("box-flashing");
+    playButton.disabled = false;
+    collectButton.disabled = false;
+    insertButton.disabled = false;
+    bonusWinTitle.classList.add("hidden");
+    bonusWinSubTitle.classList.add("hidden");
+    bonusWindow.classList.add("hidden");
+    bonusWindow2.classList.add("hidden");
+    questionMark.classList.add("hidden");
+    checkPrize.classList.add("hidden");
+    round1.classList.add("hidden");
+    takeWinnings.classList.add("hidden");
+    orGamble.classList.add("hidden");
+    questionMark2.classList.remove("rotate");
+    questionMark3.classList.remove("rotate");
+    questionMark4.classList.remove("rotate");
+    questionMark.disabled = false;
+    questionMark2.disabled = false;
+    questionMark3.disabled = false;
+    questionMark4.disabled = false;
+  }, 8000);
+});
+
+questionMark3.addEventListener("click", () => {
+  questionMark2.disabled = true;
+  questionMark3.disabled = true;
+  questionMark4.disabled = true;
+  const bonusOutcome = getBonusWin(0, 100);
+  questionMark2.classList.add("rotate");
+  questionMark3.classList.add("rotate");
+  questionMark4.classList.add("rotate");
+  setTimeout(() => {
+    questionMark2.classList.add("hidden");
+    questionMark3.classList.add("hidden");
+    questionMark4.classList.add("hidden");
+  }, 1600);
+  setTimeout(() => {
+    if (bonusOutcome >= 0 && bonusOutcome <= 33) {
+      let prizeX2 = bonusAmount * 2;
+      inGameBalance += prizeX2;
+      gameBalance.textContent = inGameBalance;
+      bonusAmount = 0;
+      line1Win.insertAdjacentHTML("beforeend", prizeX2);
+      line1Win.classList.add("flashing");
+      line1Win.classList.remove("hidden");
+      redX2.classList.remove("hidden");
+      redX3.classList.remove("hidden");
+    } else {
+      redX1.classList.remove("hidden");
+    }
+  }, 3000);
+  setTimeout(() => {
+    jackpotWinValue.textContent = "";
+    jackpotWinValue2.textContent = "";
+    gameRound1.classList.add("hidden");
+    line2Win.classList.add("hidden");
+    redX1.classList.add("hidden");
+    redX3.classList.add("hidden");
+    redX2.classList.add("hidden");
+    bonusGameText.classList.add("hidden");
+    bonusGameText.classList.remove("bonus-flashing");
+    slot1.classList.remove("box-flashing");
+    slot2.classList.remove("box-flashing");
+    slot3.classList.remove("box-flashing");
+    playButton.disabled = false;
+    collectButton.disabled = false;
+    insertButton.disabled = false;
+    bonusWinTitle.classList.add("hidden");
+    bonusWinSubTitle.classList.add("hidden");
+    bonusWindow.classList.add("hidden");
+    bonusWindow2.classList.add("hidden");
+    questionMark.classList.add("hidden");
+    checkPrize.classList.add("hidden");
+    round1.classList.add("hidden");
+    takeWinnings.classList.add("hidden");
+    orGamble.classList.add("hidden");
+    questionMark2.classList.remove("rotate");
+    questionMark3.classList.remove("rotate");
+    questionMark4.classList.remove("rotate");
+    questionMark.disabled = false;
+    questionMark2.disabled = false;
+    questionMark3.disabled = false;
+    questionMark4.disabled = false;
+  }, 8000);
+});
+
+questionMark4.addEventListener("click", () => {
+  questionMark2.disabled = true;
+  questionMark3.disabled = true;
+  questionMark4.disabled = true;
+  const bonusOutcome = getBonusWin(0, 100);
+  questionMark2.classList.add("rotate");
+  questionMark3.classList.add("rotate");
+  questionMark4.classList.add("rotate");
+  setTimeout(() => {
+    questionMark2.classList.add("hidden");
+    questionMark3.classList.add("hidden");
+    questionMark4.classList.add("hidden");
+  }, 1600);
+  setTimeout(() => {
+    if (bonusOutcome >= 67 && bonusOutcome <= 100) {
+      let prizeX2 = bonusAmount * 2;
+      inGameBalance += prizeX2;
+      gameBalance.textContent = inGameBalance;
+      bonusAmount = 0;
+      line3Win.insertAdjacentHTML("beforeend", prizeX2);
+      line3Win.classList.add("flashing");
+      line3Win.classList.remove("hidden");
+      redX1.classList.remove("hidden");
+      redX2.classList.remove("hidden");
+    } else {
+      redX3.classList.remove("hidden");
+    }
+  }, 3000);
+  setTimeout(() => {
+    jackpotWinValue.textContent = "";
+    jackpotWinValue2.textContent = "";
+    gameRound1.classList.add("hidden");
+    line2Win.classList.add("hidden");
+    redX1.classList.add("hidden");
+    redX3.classList.add("hidden");
+    redX2.classList.add("hidden");
+    bonusGameText.classList.add("hidden");
+    bonusGameText.classList.remove("bonus-flashing");
+    slot1.classList.remove("box-flashing");
+    slot2.classList.remove("box-flashing");
+    slot3.classList.remove("box-flashing");
+    playButton.disabled = false;
+    collectButton.disabled = false;
+    insertButton.disabled = false;
+    bonusWinTitle.classList.add("hidden");
+    bonusWinSubTitle.classList.add("hidden");
+    bonusWindow.classList.add("hidden");
+    bonusWindow2.classList.add("hidden");
+    questionMark.classList.add("hidden");
+    checkPrize.classList.add("hidden");
+    round1.classList.add("hidden");
+    takeWinnings.classList.add("hidden");
+    orGamble.classList.add("hidden");
+    questionMark2.classList.remove("rotate");
+    questionMark3.classList.remove("rotate");
+    questionMark4.classList.remove("rotate");
+    questionMark.disabled = false;
+    questionMark2.disabled = false;
+    questionMark3.disabled = false;
+    questionMark4.disabled = false;
+  }, 8000);
 });
 
 //Hi-score
@@ -311,7 +587,7 @@ const updateHighscore = () => {
 const randomSpins = () => {
   // const int1 = 17;
   // const int2 = 17;
-  // // const int3 = 17;
+  // const int3 = 17;
   const int1 = Math.trunc(Math.random() * 17 + 1);
   const int2 = Math.trunc(Math.random() * 17 + 1);
   const int3 = Math.trunc(Math.random() * 17 + 1);

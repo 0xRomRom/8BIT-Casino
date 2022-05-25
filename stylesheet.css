@@ -572,7 +572,7 @@
 }
 
 .rotate {
-  animation: rotate 1s linear infinite;
+  animation: rotate 1s linear infinite, opacityFade 2.8s linear 1;
 }
 
 @keyframes rotate {
@@ -582,6 +582,16 @@
 
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes opacityFade {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 }
 
@@ -614,6 +624,18 @@
 }
 
 .jackpot-win-value {
+  display: inline-block;
+  position: absolute;
+  left: 50vw;
+  top: 2vh;
+  font-size: 3vw;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  padding: 1rem;
+  color: green;
+}
+
+.jackpot-win-value2 {
   display: inline-block;
   position: absolute;
   left: 50vw;
@@ -683,7 +705,7 @@
   position: absolute;
   padding: 0.75rem 1.5rem;
   top: 40vh;
-  left: 30vw;
+  left: 35vw;
   font-family: "Press Start 2P", sans-serif;
   font-size: 1rem;
   color: white;
@@ -695,4 +717,148 @@
 .lets-gamble:hover {
   color: black;
   background: white;
+}
+
+.blackout {
+  position: absolute;
+  top: 29vh;
+  left: 21vw;
+  width: 61vw;
+  height: 46vh;
+  background: rgb(0, 0, 0);
+  z-index: 10;
+}
+
+.loading {
+  font-family: "Press Start 2P", sans-serif;
+  color: white;
+  position: absolute;
+  top: 20vh;
+  left: 20.5vw;
+  font-size: 2vw;
+}
+
+.game-round1 {
+  position: absolute;
+  top: 29vh;
+  left: 21vw;
+  width: 61vw;
+  height: 46vh;
+  background: rgb(0, 0, 0);
+  z-index: 100;
+  /* border: 2px solid red; */
+}
+
+.choose-wisely {
+  font-family: "Press Start 2P", sans-serif;
+  color: white;
+  position: absolute;
+  top: 10vh;
+  left: 20.5vw;
+  font-size: 1.5vw;
+}
+
+.question-mark2 {
+  display: inline;
+  position: absolute;
+  left: 26vw;
+  top: 28vh;
+  font-size: 3vw;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  background: black;
+}
+
+.question-mark3 {
+  display: inline;
+  position: absolute;
+  left: 15vw;
+  top: 28vh;
+  font-size: 3vw;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  background: black;
+}
+
+.question-mark4 {
+  display: inline;
+  position: absolute;
+  left: 37vw;
+  top: 28vh;
+  font-size: 3vw;
+  font-family: "Press Start 2P", sans-serif;
+  transition: all 1s ease-in-out;
+  border: 2px solid rgb(255, 255, 255);
+  border-radius: 1rem;
+  padding: 1rem;
+  cursor: pointer;
+  background: black;
+}
+
+.redX1 {
+  color: red;
+  display: inline;
+  position: absolute;
+  left: 15.5vw;
+  top: 29.5vh;
+  font-size: 4vw;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.redX2 {
+  color: red;
+  display: inline;
+  position: absolute;
+  left: 26.5vw;
+  top: 29.5vh;
+  font-size: 4vw;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.redX3 {
+  color: red;
+  display: inline;
+  position: absolute;
+  left: 37.5vw;
+  top: 29.5vh;
+  font-size: 4vw;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.line1Win {
+  color: green;
+  display: inline;
+  position: absolute;
+  left: 10vw;
+  top: 30vh;
+  font-size: 2vw;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.line2Win {
+  color: green;
+  display: inline;
+  position: absolute;
+  left: 23vw;
+  top: 30vh;
+  font-size: 2vw;
+  font-family: "Press Start 2P", sans-serif;
+}
+
+.line3Win {
+  color: green;
+  display: inline;
+  position: absolute;
+  left: 33vw;
+  top: 30vh;
+  font-size: 2vw;
+  font-family: "Press Start 2P", sans-serif;
 }

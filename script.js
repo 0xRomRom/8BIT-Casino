@@ -96,11 +96,15 @@ collectButton.addEventListener("click", () => {
     saveToLocalStorage();
   }
 });
-
+let spinCount = 0;
 playButton.addEventListener("click", () => {
   playGame();
   zeroFunds();
   newFunds();
+  if (inGameBalance > 0) {
+    spinCount++;
+  }
+  console.log(spinCount);
 });
 
 tokenTopUp.addEventListener("click", () => {
@@ -596,8 +600,6 @@ const randomSpins = () => {
   slot3.src = `icons/${int3}.png`;
 
   const winLine = () => {
-    // if (inGameBalance >= 0) {
-    //Win Combination 1
     if (int1 === 1 && int2 === 1 && int3 === 1) {
       playButton.disabled = true;
       winBalance += 20;

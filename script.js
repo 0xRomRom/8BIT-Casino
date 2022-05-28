@@ -52,6 +52,8 @@ const redX3 = document.querySelector(".redX3");
 const line1Win = document.querySelector(".line1Win");
 const line2Win = document.querySelector(".line2Win");
 const line3Win = document.querySelector(".line3Win");
+const prizeLegend = document.querySelector(".prize-legend");
+const prizeChart = document.querySelector(".prize-chart");
 
 //Logic
 let jackpot = 0;
@@ -135,6 +137,10 @@ confirmButton.addEventListener("click", () => {
   hiScoreResetModal.style.display = "none";
   settingsModal.classList.add("hidden");
   window.localStorage.removeItem("highscore");
+});
+
+prizeLegend.addEventListener("click", () => {
+  prizeChart.classList.toggle("hidden");
 });
 
 // Functions
@@ -288,7 +294,7 @@ function getBonusWin(min, max) {
 
 questionMark.addEventListener("click", () => {
   questionMark.disabled = true;
-  const bonusOutcome = getBonusWin(100, 350);
+  const bonusOutcome = getBonusWin(3, 300);
   bonusAmount = bonusOutcome;
   bonusPrize.insertAdjacentHTML("afterbegin", bonusOutcome);
   jackpotWinValue.insertAdjacentHTML("afterbegin", bonusOutcome);
@@ -411,7 +417,9 @@ questionMark2.addEventListener("click", () => {
     jackpotWinValue.textContent = "";
     jackpotWinValue2.textContent = "";
     gameRound1.classList.add("hidden");
+    line1Win.classList.add("hidden");
     line2Win.classList.add("hidden");
+    line3Win.classList.add("hidden");
     redX1.classList.add("hidden");
     redX3.classList.add("hidden");
     redX2.classList.add("hidden");
@@ -474,7 +482,9 @@ questionMark3.addEventListener("click", () => {
     jackpotWinValue.textContent = "";
     jackpotWinValue2.textContent = "";
     gameRound1.classList.add("hidden");
+    line1Win.classList.add("hidden");
     line2Win.classList.add("hidden");
+    line3Win.classList.add("hidden");
     redX1.classList.add("hidden");
     redX3.classList.add("hidden");
     redX2.classList.add("hidden");
@@ -537,7 +547,9 @@ questionMark4.addEventListener("click", () => {
     jackpotWinValue.textContent = "";
     jackpotWinValue2.textContent = "";
     gameRound1.classList.add("hidden");
+    line1Win.classList.add("hidden");
     line2Win.classList.add("hidden");
+    line3Win.classList.add("hidden");
     redX1.classList.add("hidden");
     redX3.classList.add("hidden");
     redX2.classList.add("hidden");
@@ -589,12 +601,12 @@ const updateHighscore = () => {
 // Win Logic
 
 const randomSpins = () => {
-  // const int1 = 17;
-  // const int2 = 17;
-  // const int3 = 17;
-  const int1 = Math.trunc(Math.random() * 17 + 1);
-  const int2 = Math.trunc(Math.random() * 17 + 1);
-  const int3 = Math.trunc(Math.random() * 17 + 1);
+  // const int1 = 15;
+  // const int2 = 15;
+  // const int3 = 15;
+  const int1 = Math.trunc(Math.random() * 15 + 1);
+  const int2 = Math.trunc(Math.random() * 15 + 1);
+  const int3 = Math.trunc(Math.random() * 15 + 1);
   slot1.src = `icons/${int1}.png`;
   slot2.src = `icons/${int2}.png`;
   slot3.src = `icons/${int3}.png`;
@@ -602,46 +614,32 @@ const randomSpins = () => {
   const winLine = () => {
     if (int1 === 1 && int2 === 1 && int3 === 1) {
       playButton.disabled = true;
-      winBalance += 20;
+      winBalance += 35;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
-    } else if (int1 === 1 && int2 === 1) {
-      playButton.disabled = true;
-      winBalance += 5;
-      priceWin();
-      winLine1();
-      winLine2();
     }
-
     //Win Combination 2
     if (int1 === 2 && int2 === 2 && int3 === 2) {
       playButton.disabled = true;
-      winBalance += 25;
+      winBalance += 40;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
-    } else if (int1 === 2 && int2 === 2) {
-      playButton.disabled = true;
-      winBalance += 8;
-      priceWin();
-      winLine1();
-      winLine2();
     }
-
     //Win Combination 3
     if (int1 === 3 && int2 === 3 && int3 === 3) {
       playButton.disabled = true;
-      winBalance += 25;
+      winBalance += 50;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
     } else if (int1 === 3 && int2 === 3) {
       playButton.disabled = true;
-      winBalance += 10;
+      winBalance += 15;
       priceWin();
       winLine1();
       winLine2();
@@ -650,46 +648,34 @@ const randomSpins = () => {
     //Win Combination 4
     if (int1 === 4 && int2 === 4 && int3 === 4) {
       playButton.disabled = true;
-      winBalance += 25;
+      winBalance += 35;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
-    } else if (int1 === 4 && int2 === 4) {
-      playButton.disabled = true;
-      winBalance += 8;
-      priceWin();
-      winLine1();
-      winLine2();
     }
 
     //Win Combination 5
     if (int1 === 5 && int2 === 5 && int3 === 5) {
+      playButton.disabled = true;
+      winBalance += 40;
+      priceWin();
+      winLine1();
+      winLine2();
+      winLine3();
+    }
+
+    //Win Combination 6
+    if (int1 === 6 && int2 === 6 && int3 === 6) {
       playButton.disabled = true;
       winBalance += 50;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
-    } else if (int1 === 5 && int2 === 5) {
-      playButton.disabled = true;
-      winBalance += 15;
-      priceWin();
-      winLine1();
-      winLine2();
-    }
-
-    //Win Combination 6
-    if (int1 === 6 && int2 === 6 && int3 === 6) {
-      playButton.disabled = true;
-      winBalance += 25;
-      priceWin();
-      winLine1();
-      winLine2();
-      winLine3();
     } else if (int1 === 6 && int2 === 6) {
       playButton.disabled = true;
-      winBalance += 8;
+      winBalance += 16;
       priceWin();
       winLine1();
       winLine2();
@@ -698,14 +684,14 @@ const randomSpins = () => {
     //Win Combination 7
     if (int1 === 7 && int2 === 7 && int3 === 7) {
       playButton.disabled = true;
-      winBalance += 25;
+      winBalance += 40;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
     } else if (int1 === 7 && int2 === 7) {
       playButton.disabled = true;
-      winBalance += 8;
+      winBalance += 12;
       priceWin();
       winLine1();
       winLine2();
@@ -714,14 +700,14 @@ const randomSpins = () => {
     //Win Combination 8
     if (int1 === 8 && int2 === 8 && int3 === 8) {
       playButton.disabled = true;
-      winBalance += 25;
+      winBalance += 45;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
     } else if (int1 === 8 && int2 === 8) {
       playButton.disabled = true;
-      winBalance += 8;
+      winBalance += 16;
       priceWin();
       winLine1();
       winLine2();
@@ -730,14 +716,14 @@ const randomSpins = () => {
     //Win Combination 9
     if (int1 === 9 && int2 === 9 && int3 === 9) {
       playButton.disabled = true;
-      winBalance += 20;
+      winBalance += 55;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
     } else if (int1 === 9 && int2 === 9) {
       playButton.disabled = true;
-      winBalance += 5;
+      winBalance += 18;
       priceWin();
       winLine1();
       winLine2();
@@ -746,14 +732,14 @@ const randomSpins = () => {
     //Win Combination 10
     if (int1 === 10 && int2 === 10 && int3 === 10) {
       playButton.disabled = true;
-      winBalance += 33;
+      winBalance += 65;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
     } else if (int1 === 10 && int2 === 10) {
       playButton.disabled = true;
-      winBalance += 13;
+      winBalance += 20;
       priceWin();
       winLine1();
       winLine2();
@@ -762,7 +748,7 @@ const randomSpins = () => {
     //Win Combination 11
     if (int1 === 11 && int2 === 11 && int3 === 11) {
       playButton.disabled = true;
-      winBalance += 55;
+      winBalance += 50;
       priceWin();
       winLine1();
       winLine2();
@@ -778,14 +764,14 @@ const randomSpins = () => {
     //Win Combination 12
     if (int1 === 12 && int2 === 12 && int3 === 12) {
       playButton.disabled = true;
-      winBalance += 77;
+      winBalance += 75;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
     } else if (int1 === 12 && int2 === 12) {
       playButton.disabled = true;
-      winBalance += 17;
+      winBalance += 18;
       priceWin();
       winLine1();
       winLine2();
@@ -794,7 +780,7 @@ const randomSpins = () => {
     //Win Combination 13
     if (int1 === 13 && int2 === 13 && int3 === 13) {
       playButton.disabled = true;
-      winBalance += 50;
+      winBalance += 55;
       priceWin();
       winLine1();
       winLine2();
@@ -810,28 +796,12 @@ const randomSpins = () => {
     //Win Combination 14
     if (int1 === 14 && int2 === 14 && int3 === 14) {
       playButton.disabled = true;
-      winBalance += 100;
+      winBalance += 50;
       priceWin();
       winLine1();
       winLine2();
       winLine3();
     } else if (int1 === 14 && int2 === 14) {
-      playButton.disabled = true;
-      winBalance += 25;
-      priceWin();
-      winLine1();
-      winLine2();
-    }
-
-    //Win Combination 15
-    if (int1 === 15 && int2 === 15 && int3 === 15) {
-      playButton.disabled = true;
-      winBalance += 75;
-      priceWin();
-      winLine1();
-      winLine2();
-      winLine3();
-    } else if (int1 === 15 && int2 === 15) {
       playButton.disabled = true;
       winBalance += 15;
       priceWin();
@@ -839,23 +809,32 @@ const randomSpins = () => {
       winLine2();
     }
 
-    //Win Combination 16
-    if (int1 === 16 && int2 === 16 && int3 === 16) {
-      playButton.disabled = true;
-      winBalance += 50;
-      priceWin();
+    //Win Combination 15 == JACKPOT ==
+    if (int1 === 15 && int2 === 15 && int3 === 15) {
       winLine1();
       winLine2();
       winLine3();
-    } else if (int1 === 16 && int2 === 16) {
-      playButton.disabled = true;
-      winBalance += 10;
-      priceWin();
+      bonusWin();
+    }
+    if (int1 === 15 && int2 === 14 && int3 === 15) {
       winLine1();
       winLine2();
+      winLine3();
+      bonusWin();
     }
-    //Win Combination 17 == JACKPOT ==
-    if (int1 === 17 && int2 === 17 && int3 === 17) {
+    if (int1 === 15 && int2 === 13 && int3 === 15) {
+      winLine1();
+      winLine2();
+      winLine3();
+      bonusWin();
+    }
+    if (int1 === 15 && int2 === 12 && int3 === 15) {
+      winLine1();
+      winLine2();
+      winLine3();
+      bonusWin();
+    }
+    if (int1 === 15 && int2 === 11 && int3 === 15) {
       winLine1();
       winLine2();
       winLine3();

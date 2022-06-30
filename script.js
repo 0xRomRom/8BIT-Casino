@@ -1,5 +1,9 @@
 "use strict";
 
+/**
+ * 8-Bit Casino By: github.com/0xRomRom
+ */
+
 const playerFunds = document.querySelector(".player-funds");
 const gameBalance = document.querySelector(".game-balance");
 const highscoreBalance = document.querySelector(".highscore-balance");
@@ -55,7 +59,7 @@ const line3Win = document.querySelector(".line3Win");
 const prizeLegend = document.querySelector(".prize-legend");
 const prizeChart = document.querySelector(".prize-chart");
 
-//Logic
+//Parameters
 let jackpot = 0;
 let funds = 100;
 let bonusBalance = 0;
@@ -82,8 +86,6 @@ playerFunds.textContent = funds;
 gameBalance.textContent = inGameBalance;
 tokenTopUp.disabled = true;
 
-//
-
 // Action buttons
 insertButton.addEventListener("click", () => {
   insertFunds();
@@ -98,15 +100,11 @@ collectButton.addEventListener("click", () => {
     saveToLocalStorage();
   }
 });
-let spinCount = 0;
+
 playButton.addEventListener("click", () => {
   playGame();
   zeroFunds();
   newFunds();
-  if (inGameBalance > 0) {
-    spinCount++;
-  }
-  console.log(spinCount);
 });
 
 tokenTopUp.addEventListener("click", () => {
@@ -117,6 +115,7 @@ tokenTopUp.addEventListener("click", () => {
 });
 
 settingsButton.addEventListener("click", () => {
+  prizeChart.classList.add("hidden");
   settingsModal.classList.toggle("hidden");
   if ((hiScoreResetModal.style.display = "initial")) {
     hiScoreResetModal.style.display = "none";
@@ -144,7 +143,6 @@ prizeLegend.addEventListener("click", () => {
 });
 
 // Functions
-
 const newFunds = () => {
   if (inGameBalance === 0 && funds === 0) {
     tokenTopUp.disabled = false;
@@ -200,7 +198,6 @@ const creditsAdded = () => {
 };
 
 // Slot win decoration
-
 const winLine1 = () => {
   slot1.classList.add("box-flashing");
 };
@@ -248,7 +245,6 @@ const winLine3 = () => {
 })();
 
 // Wins
-
 const priceWin = () => {
   inGameBalance += winBalance;
   winAmount.textContent = winBalance;
@@ -581,7 +577,6 @@ questionMark4.addEventListener("click", () => {
 });
 
 //Hi-score
-
 const updateHighscore = () => {
   collectButton.disabled = true;
   if (funds > highScore) {
@@ -599,7 +594,6 @@ const updateHighscore = () => {
 };
 
 // Win Logic
-
 const randomSpins = () => {
   // const int1 = 15;
   // const int2 = 15;
